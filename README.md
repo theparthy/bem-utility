@@ -1,4 +1,4 @@
-# bem-utility - wip
+# bem-utility - wip [![Build Status](https://travis-ci.org/theparthy/bem-utility.svg?branch=master)](https://travis-ci.org/theparthy/bem-utility)
 A little class to easily create classnames in BEM Syntax
 
 ## Usage
