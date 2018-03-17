@@ -16,7 +16,7 @@ console.log(block_with_modifier)
 const element = Bem.el();
 console.log(element);
 // will return:
-// 'your-block'
+// 'your-block__element'
 
 const element_with_modifier = Bem.el('element', {'modifier': true, color: 'green'})
 console.log(element_with_modifier)
