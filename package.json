@@ -4,6 +4,7 @@
   "description": "A little Class to easily create classnames in BEM Syntax",
   "main": "src/index.js",
   "devDependencies": {
+    "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
     "prettier": "^1.11.1"
   },
@@ -27,11 +28,14 @@
     "url": "https://github.com/theparthy/bem-utility/issues"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+    "src/**/*.{js,jsx,json,css}": [
+      "prettier --single-quote --write",
+      "git add"
+    ]
   },
   "scripts": {
     "precommit": "lint-staged",
-    "fix": "./node_modules/.bin/prettier --single-quote --write '**/*.{js,jsx,json,css}'"
+    "fix": "./node_modules/.bin/prettier --single-quote --write 'src/**/*.{js,jsx,json,css}'"
   },
   "homepage": "https://github.com/theparthy/bem-utility#readme",
   "contributors": [
