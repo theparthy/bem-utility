@@ -9,7 +9,9 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
+    "coveralls": "^3.0.0",
     "husky": "^0.14.3",
+    "istanbul": "^0.4.5",
     "lint-staged": "^7.0.0",
     "mocha": "^5.0.4",
     "prettier": "^1.11.1"
@@ -46,7 +48,8 @@
     ]
   },
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register test/test.js",
+    "test": "mocha --compilers js:babel-core/register --reporter nyan test/*",
+    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- --require babel-register -R spec test/*",
     "precommit": "lint-staged",
     "prepush": "npm test",
     "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'"
