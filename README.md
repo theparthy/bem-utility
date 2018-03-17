@@ -3,9 +3,7 @@ A little class to easily create classnames in BEM Syntax
 
 ## Usage
 ```
-import bemHelper from './utils/bemHelper';
-
-const BEM = bemHelper('your-block');
+const BEM = bemUtility('your-block');
 
 const block = Bem.block();
 console.log(block);
