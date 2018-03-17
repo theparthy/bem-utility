@@ -13,7 +13,7 @@ const block_with_modifier = Bem.block({'modifier': true, color: 'green'})
 console.log(block_with_modifier)
 // will return 'your-block your-block--modifier your-block--color-green'
 
-const element = Bem.el();
+const element = Bem.el('element');
 console.log(element);
 // will return:
 // 'your-block__element'
@@ -28,5 +28,4 @@ console.log(element_with_modifier)
 
 TODO: 
  - Complete Documentation
- - write additional tests
 
