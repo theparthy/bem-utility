@@ -48,6 +48,7 @@
   "scripts": {
     "test": "mocha --compilers js:babel-core/register test/test.js",
     "precommit": "lint-staged",
+    "prepush": "npm test",
     "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'"
   },
   "homepage": "https://github.com/theparthy/bem-utility#readme",
