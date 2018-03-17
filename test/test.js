@@ -1,8 +1,8 @@
 var expect = require('chai').expect;
 
-import bemUtility from '../src/index';
+import bemUtility, {classNames} from '../src/index';
 
-import {extraClasses} from '../src/utils'
+import {extraClasses, validateName} from '../src/utils'
 
 describe('#extra-class-helper', function(){
     it('should return Array of Classes when argument is given as string', function () {
@@ -24,15 +24,33 @@ describe('#extra-class-helper', function(){
         });
         expect(result).to.deep.equal(['extra', 'extra-color-green']);
     });
+    it('should return empty Array of Classes when argument is given as empty Object', function () {
+        const result = extraClasses({});
+        expect(result).to.deep.equal([]);
+    });
+    it('should throw an error when name is a boolean', function () {
+        const result = () => extraClasses(true);
+        expect(result).to.throw();
+    });
+    it('should throw an error when name is a func', function () {
+        const result = () => extraClasses(()=>{});
+        expect(result).to.throw();
+    });
 });
 
+describe('#validate-name-helper', function(){
+    it('should throw an error when name is not a string', function () {
+        const result = () => validateName(1);
+        expect(result).to.throw();
+    });
+    it('should throw an error when name is empty', function () {
+        const result = () => validateName('');
+        expect(result).to.throw();
+    });
+});
 
 describe('#bem-utility Block', function() {
-    it('should return Block className', function () {
-        const BEM = bemUtility('myBlock');
-        const result = BEM.block();
-        expect(result).to.equal('myBlock');
-    });
+
     it('should return Block className with modifiers for the Block modifier argument is given', function () {
         const BEM = bemUtility('myBlock');
         const result = BEM.block({'modifier-1': true, modifier:true, noModifier:false});
@@ -66,7 +84,6 @@ describe('#bem-utility Block', function() {
         expect(result).to.equal('myBlock extra extra-color-green');
     });
 });
-
 
 describe('#bem-utility Element', function() {
     it('should return Element className', function () {
@@ -123,5 +140,39 @@ describe('#bem-utility Config', function(){
         const BEM = bemUtility('myBlock',{el:'&&'});
         const result = BEM.element('element',{modifier:true});
         expect(result).to.equal('myBlock&&element myBlock&&element--modifier');
+    });
+});
+
+describe('#classnames', function(){
+    it('should return Array of Classes when argument is given as string', function () {
+        const result = classNames('extra');
+        expect(result).to.equal('extra');
+    });
+    it('should return Array of Classes when argument is given as array', function () {
+        const result = classNames(['extra', 'extra-2']);
+        expect(result).to.equal('extra extra-2');
+    });
+    it('should return Array of Classes when argument is given as Object, depending on their Value', function () {
+        const result = classNames({
+            'extra': true,
+            'extra-color': 'green',
+            'extra-not-1': undefined,
+            'extra-not-2': 0,
+            'extra-not-3': null,
+            'extra-not-4': false,
+        });
+        expect(result).to.equal('extra extra-color-green');
+    });
+    it('should return empty String of Classes when argument is given as empty Object', function () {
+        const result = classNames({});
+        expect(result).to.equal('');
+    });
+    it('should throw an error when name is a boolean', function () {
+        const result = () => classNames(true);
+        expect(result).to.throw();
+    });
+    it('should throw an error when name is a func', function () {
+        const result = () => classNames(()=>{});
+        expect(result).to.throw();
     });
 });
