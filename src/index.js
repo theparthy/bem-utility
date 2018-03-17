@@ -38,14 +38,6 @@ class BEM {
       ...extraClasses(extra)
     ].join(' ');
   }
-
-  b(modifiers, extra) {
-    return this.block(modifiers, extra);
-  }
-
-  el(el, modifiers, extra) {
-    return this.element(el, modifiers, extra);
-  }
 }
 
 export function classNames(extra) {

@@ -19,7 +19,7 @@ export function extraClasses(extra) {
     case typeof extra === 'string':
     case typeof extra === 'number':
       return [extra];
-    case extra instanceof Object: {
+    case typeof extra === 'object': {
       const keys = Object.keys(extra);
       if (keys.length === 0) return [];
       return keys.filter(key => !!extra[key]).map(cn => {
@@ -35,12 +35,7 @@ export function extraClasses(extra) {
   }
 }
 
-export function buildApplicableModifiers(
-  node,
-  modifiers = {},
-  sep = '--',
-  vSep = '-'
-) {
+export function buildApplicableModifiers(node, modifiers, sep, vSep) {
   const keys = Object.keys(modifiers || {});
   if (keys.length === 0) return [];
   return keys.filter(key => !!modifiers[key]).map(mod => {
