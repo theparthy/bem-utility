@@ -4,16 +4,19 @@
   "description": "A little Class to easily create classnames in BEM Syntax",
   "main": "src/index.js",
   "devDependencies": {
+    "@istanbuljs/nyc-config-babel": "^1.2.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-plugin-istanbul": "^4.1.5",
     "babel-preset-env": "^1.6.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
+    "cross-env": "^5.1.4",
     "husky": "^0.14.3",
-    "istanbul": "^0.4.5",
     "lint-staged": "^7.0.0",
     "mocha": "^5.0.4",
+    "nyc": "^11.6.0",
     "prettier": "^1.11.1"
   },
   "repository": {
@@ -43,7 +46,7 @@
   },
   "scripts": {
     "test": "mocha --compilers js:babel-core/register --reporter nyan test/*",
-    "cover": "node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha -- --require babel-register -R spec test/*",
+    "cover": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
     "precommit": "lint-staged",
     "prepush": "npm test",
     "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'"
@@ -55,5 +58,8 @@
       "email": "github@parthy.net"
     }
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-babel"
+  }
 }
