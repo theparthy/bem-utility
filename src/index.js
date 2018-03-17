@@ -52,6 +52,6 @@ export function classNames(extra) {
   return extraClasses(extra).join(' ');
 }
 
-export default function(block) {
-  return new BEM(block);
+export default function(block, config) {
+  return new BEM(block, config);
 }

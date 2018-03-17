@@ -4,9 +4,21 @@
   "description": "A little Class to easily create classnames in BEM Syntax",
   "main": "src/index.js",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "chai": "^4.1.2",
     "husky": "^0.14.3",
     "lint-staged": "^7.0.0",
+    "mocha": "^5.0.4",
     "prettier": "^1.11.1"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "stage-2"
+    ]
   },
   "repository": {
     "type": "git",
@@ -34,8 +46,9 @@
     ]
   },
   "scripts": {
+    "test": "mocha --compilers js:babel-core/register test/test.js",
     "precommit": "lint-staged",
-    "fix": "./node_modules/.bin/prettier --single-quote --write 'src/**/*.{js,jsx,json,css}'"
+    "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'"
   },
   "homepage": "https://github.com/theparthy/bem-utility#readme",
   "contributors": [

@@ -16,8 +16,8 @@ export function extraClasses(extra) {
   switch (true) {
     case extra instanceof Array:
       return extra;
-    case extra instanceof String:
-    case extra instanceof Number:
+    case typeof extra === 'string':
+    case typeof extra === 'number':
       return [extra];
     case extra instanceof Object: {
       const keys = Object.keys(extra);
@@ -27,16 +27,21 @@ export function extraClasses(extra) {
         return `${cn}${typeof value === 'string' ? `-${value}` : ''}`;
       });
     }
+    default: {
+      throw new Error(
+        'Extra classes must be of type string, number, array or object'
+      );
+    }
   }
 }
 
 export function buildApplicableModifiers(
   node,
-  modifiers,
+  modifiers = {},
   sep = '--',
   vSep = '-'
 ) {
-  const keys = Object.keys(modifiers);
+  const keys = Object.keys(modifiers || {});
   if (keys.length === 0) return [];
   return keys.filter(key => !!modifiers[key]).map(mod => {
     const value = modifiers[mod];

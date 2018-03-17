@@ -30,5 +30,5 @@ console.log(element_with_modifier)
 
 TODO: 
  - Complete Documentation
- - write Tests
+ - write additional tests
 
