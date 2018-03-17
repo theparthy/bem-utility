@@ -1,0 +1,44 @@
+{
+  "name": "bem-utility",
+  "version": "0.1.0",
+  "description": "A little Class to easily create classnames in BEM Syntax",
+  "main": "src/index.js",
+  "devDependencies": {
+    "lint-staged": "^7.0.0",
+    "prettier": "^1.11.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theparthy/bem-utility.git"
+  },
+  "keywords": [
+    "BEM",
+    "Helper",
+    "JavaScript",
+    "bem",
+    "naming",
+    "className",
+    "class",
+    "generator"
+  ],
+  "author": "Parthy <github@parthy.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/theparthy/bem-utility/issues"
+  },
+  "lint-staged": {
+    "src/**/*.{js,jsx,json,css}": ["prettier --single-quote --write", "git add"]
+  },
+  "scripts": {
+    "precommit": "lint-staged",
+    "fix": "./node_modules/.bin/prettier --single-quote --write '**/*.{js,jsx,json,css}'"
+  },
+  "homepage": "https://github.com/theparthy/bem-utility#readme",
+  "contributors": [
+    {
+      "name": "Parthy",
+      "email": "github@parthy.net"
+    }
+  ],
+  "dependencies": {}
+}
