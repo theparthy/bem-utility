@@ -68,7 +68,7 @@
     "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --mode production ",
     "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --mode production ",
     "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run build:es",
-    "prepublish": "npm run clean && npm run test && npm run build"
+    "prepublish": "npm run test && npm run build"
   },
   "homepage": "https://github.com/theparthy/bem-utility#readme",
   "contributors": [
