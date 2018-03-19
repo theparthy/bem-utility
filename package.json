@@ -1,6 +1,6 @@
 {
   "name": "bem-utility",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A little Class to easily create classnames in BEM Syntax",
   "main": "lib/bem-utility.js",
   "devDependencies": {
