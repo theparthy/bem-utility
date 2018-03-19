@@ -2,22 +2,33 @@
   "name": "bem-utility",
   "version": "0.1.0",
   "description": "A little Class to easily create classnames in BEM Syntax",
-  "main": "src/index.js",
+  "main": "lib/bem-utility.js",
   "devDependencies": {
     "@istanbuljs/nyc-config-babel": "^1.2.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
-    "babel-plugin-istanbul": "^4.1.5",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-istanbul": "^4.1.6",
     "babel-preset-env": "^1.6.1",
+    "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
     "husky": "^0.14.3",
+    "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
     "mocha": "^5.0.4",
     "nyc": "^11.6.0",
-    "prettier": "^1.11.1"
+    "prettier": "^1.11.1",
+    "uglifyjs-webpack-plugin": "^1.2.4",
+    "webpack": "^4.1.1",
+    "webpack-cli": "^2.0.12",
+    "babel-eslint": "^8.0.3",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "eslint": "^4.13.1",
+    "eslint-loader": "^1.9.0",
+    "yargs": "^11.0.0"
   },
   "repository": {
     "type": "git",
@@ -49,7 +60,8 @@
     "cover": "cross-env NODE_ENV=test nyc --reporter=lcov --reporter=text mocha test/*.js",
     "precommit": "lint-staged",
     "prepush": "npm test",
-    "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'"
+    "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'",
+    "build": "webpack --env build --mode production && npm run test"
   },
   "homepage": "https://github.com/theparthy/bem-utility#readme",
   "contributors": [
@@ -59,7 +71,8 @@
     }
   ],
   "dependencies": {},
-  "nyc": {
-    "extends": "@istanbuljs/nyc-config-babel"
-  }
+  "files": [
+    "lib",
+    "src"
+  ]
 }
