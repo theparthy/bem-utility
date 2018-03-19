@@ -2,19 +2,25 @@
   "name": "bem-utility",
   "version": "0.1.2",
   "description": "A little Class to easily create classnames in BEM Syntax",
-  "main": "lib/bem-utility.js",
+  "main": "lib/index.js",
+  "jsnext:main": "es/index.js",
   "devDependencies": {
     "@istanbuljs/nyc-config-babel": "^1.2.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
     "babel-loader": "^7.1.4",
+    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-istanbul": "^4.1.6",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chai": "^4.1.2",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
+    "eslint": "^4.13.1",
+    "eslint-loader": "^1.9.0",
     "husky": "^0.14.3",
     "jest": "^22.4.2",
     "lint-staged": "^7.0.0",
@@ -24,10 +30,6 @@
     "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.1.1",
     "webpack-cli": "^2.0.12",
-    "babel-eslint": "^8.0.3",
-    "babel-plugin-add-module-exports": "^0.2.1",
-    "eslint": "^4.13.1",
-    "eslint-loader": "^1.9.0",
     "yargs": "^11.0.0"
   },
   "repository": {
@@ -61,7 +63,12 @@
     "precommit": "lint-staged",
     "prepush": "npm test",
     "fix": "./node_modules/.bin/prettier --single-quote --write '{src, tests}/**/*.{js,jsx,json,css}'",
-    "build": "webpack --env build --mode production && npm run test"
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
+    "build:umd": "cross-env BABEL_ENV=commonjs NODE_ENV=development webpack --mode production ",
+    "build:umd:min": "cross-env BABEL_ENV=commonjs NODE_ENV=production webpack --mode production ",
+    "build": "npm run build:commonjs && npm run build:umd && npm run build:umd:min && npm run build:es",
+    "prepublish": "npm run clean && npm run test && npm run build"
   },
   "homepage": "https://github.com/theparthy/bem-utility#readme",
   "contributors": [
@@ -73,6 +80,7 @@
   "dependencies": {},
   "files": [
     "lib",
-    "src"
+    "es",
+    "dist"
   ]
 }
