@@ -1,4 +1,4 @@
-# bem-utility - wip [![Build Status](https://travis-ci.org/theparthy/bem-utility.svg?branch=master)](https://travis-ci.org/theparthy/bem-utility) [![Coverage Status](https://coveralls.io/repos/github/theparthy/bem-utility/badge.svg?branch=master)](https://coveralls.io/github/theparthy/bem-utility?branch=master)
+# bem-utility [![Build Status](https://travis-ci.org/theparthy/bem-utility.svg?branch=master)](https://travis-ci.org/theparthy/bem-utility) [![Coverage Status](https://coveralls.io/repos/github/theparthy/bem-utility/badge.svg?branch=master)](https://coveralls.io/github/theparthy/bem-utility?branch=master)
 A little class to easily create classnames in BEM Syntax
 
 ## Motivation
