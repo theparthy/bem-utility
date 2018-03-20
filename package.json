@@ -81,6 +81,7 @@
   "files": [
     "lib",
     "es",
-    "dist"
+    "dist",
+    "src"
   ]
 }
