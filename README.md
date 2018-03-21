@@ -69,9 +69,9 @@ BEM.block(); // 'your-block'
 
 BEM.block({'modifier': true, color: 'green'}); // 'your-block your-block--modifier your-block--color-green'
 
-BEM.el('element'); // 'your-block__element'
+BEM.element('element'); // 'your-block__element'
 
-BEM.el('element', {'modifier': true, color: 'green'}); // 'your-block__element your-block__element--modifier your-block__element--color-green'
+BEM.elelement('element', {'modifier': true, color: 'green'}); // 'your-block__element your-block__element--modifier your-block__element--color-green'
 
 ```
 ## Config
