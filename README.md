@@ -71,7 +71,7 @@ BEM.block({'modifier': true, color: 'green'}); // 'your-block your-block--modifi
 
 BEM.element('element'); // 'your-block__element'
 
-BEM.elelement('element', {'modifier': true, color: 'green'}); // 'your-block__element your-block__element--modifier your-block__element--color-green'
+BEM.element('element', {'modifier': true, color: 'green'}); // 'your-block__element your-block__element--modifier your-block__element--color-green'
 
 ```
 ## Config
